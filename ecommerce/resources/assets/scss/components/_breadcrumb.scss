@@ -1,0 +1,28 @@
+.custom-bread .breadcrumb {
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  .breadcrumb-item a {
+    color: #a7a7a7;
+  }
+  .breadcrumb-item.active {
+    font-weight: 500;
+  }
+  .breadcrumb-item + .breadcrumb-item {
+    padding-left: 0.45rem;
+    &:before {
+      font-weight: normal!important;
+      color: #a7a7a7;
+      content: "-";
+    }
+  }
+  @include media-breakpoint-down(sm) {
+    .breadcrumb-item.first-mobile {
+      padding-left: 0;
+      &:before {
+        content: "";
+        display: none;
+      }
+    }
+  }
+}

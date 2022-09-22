@@ -1,0 +1,57 @@
+[data-page="carrinho"] {
+  .iconify.empty {
+    font-size: 7rem;
+    @include media-breakpoint-down(sm) {
+      font-size: 6rem;
+    }
+  }
+
+  .shopping-cart-content {
+    a.d-inline-block:hover {
+      text-decoration: none;
+    }
+    h3 {
+      color: #4a4a4a!important;
+    }
+    .text-muted p {
+      line-height: initial;
+    }
+    strong.h5 {
+      font-weight: 600!important;
+      color: #636363!important;
+    }
+  }
+}
+
+.alert-cart {
+  background: #f7f3ca;
+  strong {
+    font-weight: 500;
+    color: #b5a112;
+    font-size: 1.1rem;
+  }
+}
+
+// Listagem lateral no pagamento
+.card-shop-left.position-sticky {
+  top: -2.1rem;
+}
+
+.card-shop-left {
+  h2 {
+    color: #4a4a4a;
+  }
+  strong.h4 {
+    line-height: 0.85;
+  }
+  .section-login {
+    line-height: initial;
+  }
+  .btn-blue {
+    padding: 0.5rem 0.75rem 0.73rem 0.75rem;
+  }
+  .btn-blue-outline:hover {
+    background: white;
+    color: darken($blue, 7.5%);
+  }
+}

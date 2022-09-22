@@ -1,0 +1,34 @@
+.wrapper-slider-servico,
+.owl-gallery .owl-item {
+  background-color: #f3f3f3;
+}
+
+.wrapper-slider-servico,
+.owl-gallery .owl-item img {
+  height: 22rem;
+  @include media-breakpoint-up(xxl) {
+    height: 28rem;
+  }
+}
+
+.owl-gallery {
+  .owl-item img {
+    object-fit: cover;
+  }
+  button.owl-next {
+    right: 15px!important;
+  }
+  button.owl-prev {
+    left: 15px!important;
+  }
+}
+
+.wrapper-slider-servico {
+  position: relative;
+  button {
+    position: absolute;
+    right: 25px;
+    bottom: 25px;
+    z-index: 3;
+  }
+}

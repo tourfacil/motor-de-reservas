@@ -1,0 +1,78 @@
+# Feito por Vinicius Guimarães
+# Ao usar, alterar todos os campos 'projeto_belavista' pelo nome do projeto
+# Altere os campos descritos como 'teste-triplo'
+
+version: '3'
+
+volumes:
+
+# Local para guardar os dados do BANCO.
+# Caso não for utilizado BANCO no projeto, pode ser removido.
+  app-mysql-data:
+    driver: local
+
+# Local para guardar os dados do REDIS.
+# Caso não for utilizado REDIS no projeto, pode ser removido.
+  app-redis-data:
+    driver: local
+
+services:
+
+  # Container do banco de dados. Caso não for necessário, pode ser removido
+  mysql:
+    image: mysql:5.7
+    container_name: luz_camera_gramado_mysql
+    volumes:
+      - app-mysql-data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=yC9eMesiaKRPkmQ2FKrV
+      - MYSQL_DATABASE=luz_camera_gramado
+      - MYSQL_USER=luz_camera_gramado
+      - MYSQL_PASSWORD=EGdSLXNatpEXXxuJ8KpL
+
+# Container principal. Usa a imagem que foi definida no Dockerfile. Trata-se de um container com o PHP e o NGINX configurados
+  app:
+    container_name: luz_camera_gramado_app
+    command: /usr/bin/supervisord -c /etc/supervisord.conf # Comando para ativar o Supervisor
+    build:
+      context: ./
+      dockerfile: ./docker/Dockerfile
+    ports:
+      - "80:80"
+      - "8080:8080"
+      - "8282:8282"
+      - "443:443"
+    volumes:
+      - ".:/var/www/"
+      - "./data/certbot/conf:/etc/letsencrypt"
+      - "./data/certbot/www:/var/www/certbot"
+      - "./docker/supervisor.conf:/etc/supervisord.conf"
+      - "./docker/nginx.conf:/etc/nginx/sites-enabled/default"
+    links:
+      - mysql
+      - redis
+      - certbot
+
+  # Redis - Trata-se do container para manter o CACHE da aplicação
+  # A senha informada no --requirepass deve ser colocada no .ENV da aplicação
+  redis:
+    image: redis:alpine
+    container_name: luz_camera_gramado_redis
+    command: redis-server --requirepass 3mYC8HJ9QA5crf5LKecs
+    volumes:
+      - app-redis-data:/data
+    ports:
+      - "6379:6379"
+
+  # Let's encrypt certbot
+  # Container que serve para criar o certificado SSL. (Cadeado de seguro do site)
+  # Caso a aplicação for uma API, não sera necessário e pode ser removido
+  certbot:
+    container_name: luz_camera_gramado_certbot
+    image: certbot/certbot
+    # entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+    volumes:
+      - "./data/certbot/conf:/etc/letsencrypt"
+      - "./data/certbot/www:/var/www/certbot"

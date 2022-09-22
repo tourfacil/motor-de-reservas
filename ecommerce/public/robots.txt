@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /servico/informacoes
+Disallow: /info-servico
+Disallow: /trackers
+
+Sitemap: https://www.tourfacil.com.br/sitemap.xml

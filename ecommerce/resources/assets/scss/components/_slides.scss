@@ -1,0 +1,88 @@
+.owl-carousel .owl-nav button.owl-prev,
+.owl-carousel .owl-nav button.owl-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all .2s ease-out;
+  color: white;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+  box-shadow: 0 3px 6px rgba(0,0,0,.05);
+  i {
+    vertical-align: middle!important;
+  }
+}
+
+.owl-nav-yellow {
+  .owl-nav button.owl-prev,
+  .owl-nav button.owl-next {
+    background: $yellow;
+  }
+}
+
+.owl-nav-grey {
+  .owl-nav button.owl-prev,
+  .owl-nav button.owl-next {
+    background: #868686;
+  }
+}
+
+.owl-nav-blue {
+  .owl-nav button.owl-prev,
+  .owl-nav button.owl-next {
+    background: $blue;
+  }
+}
+
+.owl-nav-purple {
+  .owl-nav button.owl-prev,
+  .owl-nav button.owl-next {
+    background: $purple;
+  }
+}
+
+.owl-nav-transparent {
+  .owl-nav button.owl-prev,
+  .owl-nav button.owl-next {
+    box-shadow: none;
+    background: transparent;
+    .iconify {
+      font-size: 2.4rem;
+      vertical-align: text-top!important;
+    }
+  }
+}
+
+.owl-nav-container {
+  button.owl-prev {
+    left: -10px;
+    @include media-breakpoint-up(sm) {
+      left: -30px;
+    }
+    @include media-breakpoint-up(xl) {
+      left: -60px;
+    }
+  }
+  button.owl-next {
+    right: -10px;
+    @include media-breakpoint-up(sm) {
+      right: -30px;
+    }
+    @include media-breakpoint-up(xl) {
+      right: -60px;
+    }
+  }
+}
+
+.owl-padding .owl-stage-outer {
+  padding: 25px 15px;
+  margin: -25px -15px;
+}
+
+.owl-nav {
+  font-size: 1.882rem;
+}

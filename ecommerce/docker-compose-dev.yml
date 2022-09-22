@@ -1,0 +1,36 @@
+####
+# ATTENTION:
+# Replace all occurrences of admin with your project's name.
+####
+ss
+# v3 syntax
+version: '3'
+
+
+services:
+
+  # PHP (with Nginx)
+  app:
+    image: ambientum/php:7.3-nginx
+    container_name: app
+    volumes:
+      - .:/var/www/app
+    ports:
+      - "8080:8080"
+    networks:
+     - padrao
+
+  mailhog:
+      image: mailhog/mailhog
+      container_name: email
+      logging:
+        driver: 'none'  # disable saving logs
+      ports:
+        - 1025:1025 # smtp server
+        - 8025:8025 # web ui
+      networks:
+       - padrao
+
+networks:
+  padrao:
+    external: true
