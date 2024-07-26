@@ -1,18 +1,10 @@
-####
-# ATTENTION:
-# Replace all occurrences of admin with your project's name.
-####
-ss
-# v3 syntax
 version: '3'
 
-
 services:
-
   # PHP (with Nginx)
   app:
     image: ambientum/php:7.3-nginx
-    container_name: app
+    container_name: app_ecommerce
     volumes:
       - .:/var/www/app
     ports:
@@ -21,15 +13,23 @@ services:
      - padrao
 
   mailhog:
-      image: mailhog/mailhog
-      container_name: email
-      logging:
-        driver: 'none'  # disable saving logs
-      ports:
-        - 1025:1025 # smtp server
-        - 8025:8025 # web ui
-      networks:
-       - padrao
+    image: mailhog/mailhog
+    container_name: email_ecommerce
+    logging:
+      driver: 'none'  # disable saving logs
+    ports:
+      - 1025:1025 # smtp server
+      - 8025:8025 # web ui
+    networks:
+     - padrao
+
+  redis:
+    image: redis:latest
+    container_name: redis_ecommerce
+    ports:
+      - "6379:6379"
+    networks:
+     - padrao
 
 networks:
   padrao:

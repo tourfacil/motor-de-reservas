@@ -197,7 +197,7 @@ if(! function_exists('maskNumberCard')) {
             return $number_card;
         }
 
-        return $numeros[0] . $numeros[1]{0} . $numeros[1]{1} . "****" . $numeros[3];
+        return $numeros[0] . $numeros[1][0] . $numeros[1][1] . "****" . $numeros[3];
     }
 }
 

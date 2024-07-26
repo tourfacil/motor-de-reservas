@@ -6,6 +6,17 @@
 |--------------------------------------------------------------------------
 */
 
+// routes/web.php
+Route::get('/env-test', function () {
+    return [
+        'APP_NAME' => env('APP_NAME'),
+        'APP_ENV' => env('APP_ENV'),
+        'CANAL_VENDA_ID' => env('CANAL_VENDA_ID'),
+        'TEST_VARIABLE' => env('TEST_VARIABLE')
+    ];
+});
+
+
 Route::group(['namespace' => 'Ecommerce'], function () {
 
     Route::group(['prefix' => '/admin-ecommerce-api'], function() {
