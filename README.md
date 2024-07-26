@@ -49,3 +49,4 @@ Guia de instalação.
 - e entrar no container e buildar o composer sair e buildar yarn
 - agora estou o erro é do canal de venda no .env porem estou com ele preenchido.
 - continuamos com os mesmo problema do .env não ser encontrado teste com tinker e realmente não tá lendo.
+- criei um rota para verificar mais facilmente o .env url-teste mas está retornando as infos como null
