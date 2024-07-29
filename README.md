@@ -17,6 +17,7 @@ Guia de instalação.
 - Configure os dominíos em `./init-letsencrypt.sh` e em `./docker/nginx.conf`
 
 ## anotacoes bruno 
+Dia 26/07/2024
 
 - Técnicamente pelo o que eu entendi o vini esta projetando um servidor principal rodando php, nginx e certbot(para SSL) e containers adicionais se necessário como:
     
@@ -51,7 +52,7 @@ Guia de instalação.
 - continuamos com os mesmo problema do .env não ser encontrado teste com tinker e realmente não tá lendo.
 - criei um rota para verificar mais facilmente o .env url-teste mas está retornando as infos como null
 
-Dia 29/07
+Dia 29/07/2024
 
 - excluir o ecommerce e vou clonar o admin, ecommerce e parceiros dentro do projeto principal
 - criei novo repositório.
