@@ -50,3 +50,10 @@ Guia de instalação.
 - agora estou o erro é do canal de venda no .env porem estou com ele preenchido.
 - continuamos com os mesmo problema do .env não ser encontrado teste com tinker e realmente não tá lendo.
 - criei um rota para verificar mais facilmente o .env url-teste mas está retornando as infos como null
+
+Dia 29/07
+
+- excluir o ecommerce e vou clonar o admin, ecommerce e parceiros dentro do projeto principal
+- criei novo repositório.
+
+
