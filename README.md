@@ -56,5 +56,6 @@ Dia 29/07/2024
 
 - excluir o ecommerce e vou clonar o admin, ecommerce e parceiros dentro do projeto principal
 - criei novo repositório.
-
+- adicionei os 3 projetos dentro do motor e removi o .git deles para serem dependencias do projeto principal.
+- refiz o docker-compose-dev.yml do motor-de-reservas para orquestrar os outros projetos....
 

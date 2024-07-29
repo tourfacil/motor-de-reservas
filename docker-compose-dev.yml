@@ -1,0 +1,103 @@
+version: '3'
+
+volumes:
+  app-mysql-data:
+    driver: local
+  app-redis-data:
+    driver: local
+  dbdata:
+    driver: local
+
+services:
+  # MySQL for all internal projects
+  mysql:
+    image: mysql:5.7
+    container_name: principal_mysql
+    environment:
+      MYSQL_DATABASE: principal_db
+      MYSQL_USER: principal_user
+      MYSQL_PASSWORD: principal_password
+      MYSQL_ROOT_PASSWORD: principal_root_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - app-mysql-data:/var/lib/mysql
+    networks:
+      - default
+
+  # Redis for all internal projects
+  redis:
+    image: redis:alpine
+    container_name: principal_redis
+    command: redis-server --requirepass principal_redis_password
+    volumes:
+      - app-redis-data:/data
+    ports:
+      - "6379:6379"
+    networks:
+      - default
+
+  # Certbot for SSL certificates (if needed)
+  certbot:
+    image: certbot/certbot
+    container_name: principal_certbot
+    volumes:
+      - ./data/certbot/conf:/etc/letsencrypt
+      - ./data/certbot/www:/var/www/certbot
+    networks:
+      - default
+
+  # Admin project
+  admin:
+    build:
+      context: ./admin
+      dockerfile: Dockerfile
+    image: admin_image
+    container_name: admin_app
+    ports:
+      - "8282:8080"
+    volumes:
+      - ./admin:/var/www/app
+    depends_on:
+      - mysql
+      - redis
+    networks:
+      - default
+
+  # Parceiros project
+  parceiros:
+    build:
+      context: ./parceiros
+      dockerfile: Dockerfile
+    image: parceiros_image
+    container_name: parceiros_app
+    ports:
+      - "8484:8080"
+    volumes:
+      - ./parceiros:/var/www/app
+    depends_on:
+      - mysql
+      - redis
+    networks:
+      - default
+
+  # Ecommerce project
+  ecommerce:
+    build:
+      context: ./ecommerce
+      dockerfile: Dockerfile
+    image: ecommerce_image
+    container_name: ecommerce_app
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./ecommerce:/var/www/app
+    depends_on:
+      - mysql
+      - redis
+    networks:
+      - default
+
+networks:
+  default:
+    driver: bridge
