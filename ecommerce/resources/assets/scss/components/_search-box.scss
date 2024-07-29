@@ -1,0 +1,110 @@
+.search-box {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: rgba(255,255,255,0.95);
+  z-index: 99999;
+  form {
+    margin-top: -6rem;
+    position: relative;
+    @include media-breakpoint-down(md) {
+      margin-top: -5rem;
+    }
+    input {
+      width: 100%;
+      border: 0;
+      border-bottom: 2px solid #4b4b4b;
+      background: transparent;
+      font-weight: 600;
+      font-size: 1.5rem;
+      @include media-breakpoint-up(md) {
+        font-size: 2.2rem;
+        padding-bottom: 0.5rem;
+      }
+      &:focus, &:active {
+        outline: none;
+        box-shadow: none;
+      }
+    }
+    button {
+      position: absolute;
+      right: 2px;
+      top: 5px;
+      background: $blue;
+      border-radius: 0.25rem;
+      .iconify {
+        color: white;
+        font-size: 1.7rem;
+        vertical-align: middle!important;
+      }
+    }
+  }
+
+  button[data-action="close-search"] {
+    position: absolute;
+    top: 3%;
+    right: 3%;
+    @include media-breakpoint-up(sm) {
+      top: 10%;
+      right: 8%;
+    }
+    .iconify {
+      font-size: 3rem;
+      @include media-breakpoint-down(sm) {
+        font-size: 2rem;
+      }
+    }
+  }
+}
+
+#autocomplete-list {
+  margin-top: 0.25rem;
+  display: none;
+  position: absolute;
+  background: white;
+  border-top: none;
+  width: calc(100% - 30px);
+  max-width: 100%;
+  border-radius: 0 0 3px 3px;
+  max-height: 287px;
+  overflow-y: auto;
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+
+  .autocomplete-items:hover {
+    background: #fafdfe;
+  }
+
+  .autocomplete-items a,
+  .autocomplete-items.no-results {
+    padding: 0.75rem 1.5rem;
+    display: block;
+    text-align: left;
+    text-decoration: none;
+    font-weight: 500;
+    color: $blue;
+    font-size: 1.2rem;
+    line-height: initial;
+  }
+
+  .autocomplete-items a:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+
+  .autocomplete-items img {
+    width: 52px;
+    height: 48px;
+    border-radius: 3px;
+    float: left;
+    margin-right: 1rem;
+    object-fit: cover;
+  }
+
+  .autocomplete-items .small {
+    color: #666666;
+    font-size: 14px;
+  }
+}

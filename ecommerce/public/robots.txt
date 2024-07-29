@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /cliente/
+Disallow: /gramado-e-canela/ingressos/teste/
+Disallow: /dev/
+Disallow: /adm/
+Disallow: /admin/
+Disallow: /parceiros/
+Disallow: /trackers
+Sitemap: https://www.tourfacil.com.br/sitemap.xml

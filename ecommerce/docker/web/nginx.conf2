@@ -1,0 +1,92 @@
+user nginx;
+worker_processes auto;
+
+error_log /var/log/nginx/error.log warn;
+
+pid /run/nginx.pid;
+
+events {
+  worker_connections  1024;
+  multi_accept on;
+  use epoll;
+}
+
+http {
+    include /etc/nginx/mime.types;
+    default_type application/octet-stream;
+
+    log_format  main_ext  '$remote_addr - $remote_user [$time_local] "$request" '
+                          '$status $body_bytes_sent "$http_referer" '
+                          '"$http_user_agent" "$http_x_forwarded_for" '
+                          '"$host" sn="$server_name" '
+                          'rt=$request_time '
+                          'ua="$upstream_addr" us="$upstream_status" '
+                          'ut="$upstream_response_time" ul="$upstream_response_length" '
+                          'cs=$upstream_cache_status' ;
+
+    # do not show the nginx version
+    server_tokens   off;
+
+    # set client body size to 10M
+    client_max_body_size 10M;
+
+    # Expires map
+     map $sent_http_content_type $expires {
+         default                    off;
+         text/html                  epoch;
+         text/css                   max;
+         application/javascript     max;
+         ~image/                    max;
+         ~font/                     max;
+     }
+
+    server {
+        listen 80;
+        listen [::]:80;
+        server_name adm.tourfacil.com.br;
+
+        location / {
+            root /var/www/app/public;
+            index index.php;
+            access_log /var/log/nginx/access.log  main_ext;
+            try_files $uri $uri/ /index.php$is_args$args;
+        }
+
+        location ~ \.php$ {
+            try_files $uri /index.php =404;
+            fastcgi_split_path_info ^(.+\.php)(/.+)$;
+            fastcgi_pass php:9000;  # Corrigido para utilizar o nome do serviço PHP do docker-compose
+            fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+            fastcgi_param SCRIPT_NAME $fastcgi_script_name;
+            fastcgi_index index.php;
+            include fastcgi_params;
+        }
+
+        location /nginx_status {
+            stub_status on;
+            allow 127.0.0.1;
+            deny all;
+        }
+
+        location ~* \.(?:jpg|jpeg|gif|png|ico|cur|gz|svg|svgz|mp4|ogg|ogv|webm|htc|svg|woff|woff2|ttf)\$ {
+          expires 1M;
+          access_log off;
+          add_header Cache-Control public;
+        }
+
+        location ~* \.(?:css|js)\$ {
+          expires 7d;
+          access_log off;
+          add_header Cache-Control public;
+        }
+
+        location ~* \.(?:eot|ttf|svg|woff|woff2)$ {
+          access_log off;
+          add_header Vary Accept-Encoding;
+        }
+
+        location ~ /\.ht {
+            deny  all;
+        }
+    }
+}

@@ -1,0 +1,63 @@
+.lista-cpf {
+
+  .large {
+    width: 800px!important;
+  }
+
+  .m-button-voltar {
+    background: #dedede;
+    text-transform: uppercase;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    text-align: center;
+    display: block;
+    float: left;
+    padding: 0 18px;
+    margin: 15px 20px 0 0;
+    font-weight: bold;
+    i {
+      margin-right: 10px;
+    }
+  }
+
+  h2 {
+    margin-bottom: 35px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    thead th {
+      text-transform: uppercase;
+      text-align: left;
+    }
+    th, td {
+      padding: 15px 10px;
+      border-bottom: 1px solid #ddd;
+    }
+    tr:last-child td {
+      border: none;
+    }
+    .m-button {
+      padding: 0 5px!important;
+      height: 2.5rem !important;
+      line-height: 2.5rem !important;
+      i {
+        margin-left: 10px;
+      }
+    }
+    strong.info {
+      text-transform: uppercase;
+      font-size: 0.95rem;
+    }
+    strong.text-success {
+      color: green;
+    }
+    strong.text-warning {
+      color: orange;
+    }
+    strong.text-info, strong.text-danger {
+      color: red;
+    }
+  }
+}

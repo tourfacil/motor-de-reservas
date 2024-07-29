@@ -1,0 +1,94 @@
+
+####
+# ATTENTION:
+# Replace all occurrences of admin with your project's name.
+####
+
+# v3 syntax
+version: '3'
+
+# Named volumes
+volumes:
+  # MySQL Data
+  admin-mysql-data:
+    driver: local
+
+  # Redis Data
+  app-redis-data:
+    driver: local
+  
+  dbdata:
+    driver: local
+
+
+services:
+
+  # MySQL (5.7)
+  mysql:
+    build: 
+      context: .
+      dockerfile: ./mysql/Dockerfile
+    image: mysql:5.7.35
+    container_name: tourfacil_mysql
+    restart: unless-stopped
+    tty: true
+    ports:
+      - '3306:3306'
+    environment:
+      MYSQL_DATABASE: tourfacil
+      MYSQL_USER: tourfacil
+      MYSQL_PASSWORD: tourfacil
+      MYSQL_ROOT_PASSWORD: tourfacil
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    volumes:
+      - ./mysql/my.cnf:/etc/mysql/my.cnf
+      - ./mysql/dbdata:/var/lib/mysql/
+    networks:
+      - padrao
+
+  # # PHP (with Nginx)
+  app:
+    image: ambientum/php:7.3-nginx
+    container_name: admin-app
+    volumes:
+      - .:/var/www/app
+    ports:
+      - "8282:8080"
+    networks:
+     - padrao
+
+  # Redis
+  redis:
+    image: redis:alpine
+    container_name: admin-redis
+    command: redis-server --requirepass 123456
+    volumes:
+      - app-redis-data:/data
+    ports:
+      - "6379:6379"
+    networks:
+      - padrao
+
+  # Redis
+  node:
+    image: node:10
+    container_name: admin-node2
+    volumes:
+      - .:/var/www/app
+
+
+  mailhog:
+    image: mailhog/mailhog
+    container_name: email
+    logging:
+      driver: 'none'  # disable saving logs
+    ports:
+      - 1025:1025 # smtp server
+      - 8025:8025 # web ui
+    networks:
+      - padrao
+networks:
+  padrao:
+    external: true
+

@@ -1,0 +1,28 @@
+nav.navbar {
+  //background-color: #343a40;
+  //color: #eaeaea;
+  .navbar-brand {
+    button.dropdown-toggle {
+      background: #eaeaea;
+      outline: none;
+    }
+    i {
+      font-size: 1rem;
+    }
+  }
+  .menu-btn {
+    margin-top: 4px;
+  }
+  div.select_navbar {
+    width: 270px!important;
+    margin-top: -2px;
+    .dropdown-menu {
+      left: 0;
+      right: auto;
+    }
+    .btn-light:hover,
+    .btn-light:focus {
+      border-color: transparent !important;
+    }
+  }
+}

@@ -1,0 +1,33 @@
+####
+# ATTENTION:
+# Replace all occurrences of admin with your project's name.
+####
+
+# v3 syntax
+version: '3'
+
+
+services:
+
+  # PHP (with Nginx)
+  app:
+    image: ambientum/php:7.3-nginx
+    container_name: app
+    volumes:
+      - .:/var/www/app
+    ports:
+      - "8080:8080"
+    networks:
+     - padrao
+
+  # Redis
+  node:
+    image: node:10
+    container_name: admin-node
+    volumes:
+      - .:/var/www/app
+    working_dir: /var/www/app
+
+networks:
+  padrao:
+    external: true

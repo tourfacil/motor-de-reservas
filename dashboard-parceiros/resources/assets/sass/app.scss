@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+// Boostrap
+@import "../vendor/css/bootstrap.css";
+@import "~animate.css";
+@import "../vendor/css/bootstrap-select.css";
+@import "../vendor/css/datatables.css";
+// Icons
+@import "../vendor/icons/lineawesome/css/line-awesome.min.css";
+@import "../vendor/icons/ionicons/css/ionicons.min.css";
+@import "../vendor/icons/themify/css/themify-icons.min.css";
+@import "../vendor/icons/meteocons/css/meteocons.min.css";
+// Elisyam CSS
+@import "../vendor/css/elisyam-1.5.css";
+// Plugins
+@import "../vendor/css/lumos";
+// Custom
+@import "custom";
+@import "partials/login";
+@import "partials/recupera-senha";
+@import "partials/navbar";
+@import "partials/servicos-comissoes";
+@import "partials/dashboard";
+@import "partials/view-pdf";
+@import "partials/agenda";

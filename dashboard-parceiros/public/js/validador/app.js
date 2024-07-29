@@ -1,0 +1,1 @@
+var SidebarCtrl={init:function(){SidebarCtrl.bindOpenSidebar(),SidebarCtrl.bindCloseSidebar()},bindOpenSidebar:function(){$("[data-menu-trigger]").on("click",function(){$("#menu").addClass("open")})},bindCloseSidebar:function(){$("[data-menu-close]").on("click",function(){$("#menu").removeClass("open")})}},ValidadorCtrl={init:function(){console.log("iniciou")}};

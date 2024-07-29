@@ -1,0 +1,34 @@
+nav.navbar {
+  //background-color: #343a40;
+  //color: #eaeaea;
+  .navbar-brand {
+    button.dropdown-toggle {
+      background: #eaeaea;
+      outline: none;
+    }
+    i {
+      font-size: 1rem;
+    }
+  }
+  .btn-validador {
+    margin: 0 0.25rem 0 0;
+    @media (min-width: 1200px) {
+      margin-top: 1.1rem;
+    }
+  }
+  .menu-btn {
+    margin-top: 4px;
+  }
+  div.select_navbar {
+    width: 270px!important;
+    margin-top: -2px;
+    .dropdown-menu {
+      left: 0!important;
+      right: auto;
+    }
+    .btn-light:hover,
+    .btn-light:focus {
+      border-color: transparent !important;
+    }
+  }
+}

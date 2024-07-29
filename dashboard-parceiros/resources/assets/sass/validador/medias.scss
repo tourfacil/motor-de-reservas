@@ -1,0 +1,19 @@
+/* Breakpoints */
+@mixin for-phone {
+  @media only screen and (max-width: 37.438em) { @content; } // 599px
+}
+@mixin for-tablet {
+  @media only screen and (min-width: 37.500em) { @content; } // 600px
+}
+@mixin for-phone-tablet {
+  @media only screen and (min-width: 100px) and (max-width: 56.250em) { @content; } // 600px
+}
+@mixin for-tablet-2 {
+  @media only screen and (min-width: 56.250em) { @content; } // 900px
+}
+@mixin for-desktop {
+  @media only screen and (min-width: 1080px) { @content; } // 1200px
+}
+@mixin for-desktop-big {
+  @media only screen and (min-width: 112.500em) { @content; } // 1800px
+}

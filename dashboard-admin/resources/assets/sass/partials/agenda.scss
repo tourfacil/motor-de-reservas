@@ -1,0 +1,183 @@
+.loader-calendar {
+  height: 400px;
+  background: #fafafa;
+  position: relative;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  h4 {
+    color: #bbbbbb;
+    text-transform: uppercase;
+  }
+  .vertical-loader {
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    top: 50%;
+    -webkit-transform: translate(0, -30%);
+    -moz-transform: translate(0, -30%);
+    -ms-transform: translate(0, -30%);
+    -o-transform: translate(0, -30%);
+    transform: translate(0, -30%);
+  }
+}
+
+.list-valores-servicos {
+  .header-table {
+    color: #5d5386;
+    padding: 15px 10px;
+    font-weight: 600;
+  }
+}
+
+#service-calendar {
+
+  .fc-day-grid-container {
+    height: auto!important;
+    overflow: hidden!important;
+  }
+
+  .fc-basic-view .fc-body .fc-row {
+    max-height: 154px
+  }
+
+  .fc-toolbar h2 {
+    text-transform: capitalize!important;
+    margin-bottom: 0;
+    &:before {
+      content: "\f15c";
+      font: normal normal normal 16px/1 LineAwesome;
+      text-decoration: inherit;
+      text-rendering: optimizeLegibility;
+      text-transform: none;
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-font-smoothing: antialiased;
+      margin-right: 10px;
+      font-size: 2rem !important;
+      vertical-align: text-top;
+    }
+  }
+
+  .fc-content {
+    position: relative;
+    overflow: inherit;
+    &:hover .fc-info-date {
+      opacity: 1;
+    }
+    .fc-info-date {
+      position: absolute;
+      top: -25px;
+      left: 0;
+      margin: 0;
+      color: #656565 !important;
+      opacity: 0;
+      -webkit-transition: all .3s;
+      -moz-transition: all .3s;
+      -ms-transition: all .3s;
+      -o-transition: all .3s;
+      transition: all .3s;
+    }
+  }
+
+  .fc-event-container {
+    padding-top: 0;
+    a {
+      cursor: pointer;
+    }
+  }
+
+  p.fc-text {
+    margin: 5px 0;
+    span {
+      font-weight: 600;
+    }
+    &:first-child {
+      margin-top: 0!important;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  span.fc-title {
+    margin-bottom: 5px;
+    display: none;
+  }
+
+  .fc-bg-green-cad {
+    background: #5cb85c;
+    border: none!important;
+    * {color: white!important;}
+    &:hover {
+      background: #52a452;
+    }
+  }
+
+  .fc-bg-green-border {
+    background: white !important;
+    border-left: 3px solid #5cb85c!important;
+    * {color: #5cb85c!important;}
+  }
+
+  .fc-bg-orange-cad {
+    background: #f0ad4e;
+    border: none!important;
+    * {color: white!important;}
+    &:hover {
+      background-color: #de9f4a;
+    }
+  }
+
+  .fc-bg-orange-border {
+    background: white !important;
+    border-left: 3px solid #f0ad4e!important;
+    * {color: #f0ad4e!important;}
+  }
+
+  .fc-bg-red-cad {
+    background: #fb5955;
+    border: none!important;
+    * {color: white!important;}
+    &:hover {
+      background-color: #ff4a45;
+    }
+  }
+
+  .fc-bg-red-border {
+    background: white!important;
+    border-left: 3px solid #e84a46!important;
+    * {color: #e84a46!important;}
+  }
+
+  .fc-bg-other-month {
+    display: none!important;
+    pointer-events: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    border: 1px solid #cecece;
+    * {color: #cecece!important;}
+  }
+}
+
+.legend-calendar {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 1px 15px 1px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: 0 1px 15px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 15px 1px rgba(0, 0, 0, 0.05);
+  vertical-align: text-bottom;
+  margin: 0 5px 0 10px;
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+.legend-calendar.red { background-color: #fb5955; }
+.legend-calendar.orange { background-color: #f0ad4e; }
+.legend-calendar.green { background-color: #5cb85c; }

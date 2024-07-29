@@ -1,0 +1,60 @@
+#google-map {
+  width: 100%;
+  height: 350px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  #infowindow-content {
+    display: inline;
+  }
+}
+
+#infowindow-content {
+  color: #424242!important;
+  font-size: .95rem;
+  display: none;
+  #place-name {
+    font-weight: 600!important;
+    font-size: 1rem;
+  }
+}
+
+.info-terminal {
+  color: #37474F !important;
+  p {
+    margin-bottom: 1.4rem;
+    i {
+      float: left;
+      padding-right: 0.6rem;
+      font-size: 1.6rem;
+      margin-top: -1px;
+    }
+  }
+}
+
+#mapa-termina-conexao {
+  width: 100%;
+  height: 300px;
+}
+
+.status-conexao-terminal {
+  width: 30px;
+  height: 30px;
+  vertical-align: middle;
+  display: inline-block;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.status-conexao-terminal.active {
+  background: #5cb85c;
+}
+
+.status-conexao-terminal.inactive {
+  background: #ff4a45;
+}
+
+.status-conexao-terminal.warning {
+  background: #f0ad4e;
+}

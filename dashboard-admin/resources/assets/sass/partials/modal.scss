@@ -1,0 +1,116 @@
+/*!
+ * Copyright (c) 2022. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+ * Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
+ * Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
+ * Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
+ * Vestibulum commodo. Ut rhoncus gravida arcu.
+ */
+
+.jqmodal.modal-lg {
+  @include media-breakpoint-up(lg) {
+    max-width: 850px;
+  }
+}
+
+.loader-datas {
+  .iconify.text-danger {
+    font-size: 4rem;
+    margin-top: 0.3rem;
+    margin-bottom: -0.7rem;
+  }
+  .spinner-border {
+    width: 3rem;
+    height: 3rem;
+  }
+  p {
+    text-align: center;
+    line-height: initial;
+  }
+}
+
+.datepicker-wrapper {
+  position: sticky;
+  top: 5px;
+  margin-top: 0.6rem;
+  height: 100%;
+}
+
+.modal-footer-custom {
+  p#total-modal {
+    margin: 0;
+    font-weight: 500;
+  }
+  button {
+    border: 0;
+    padding: 0.5rem 1.15rem 0.6rem 1.15rem;
+    @include media-breakpoint-down(md) {
+      padding: .5rem 1.35rem .75rem;
+    }
+    &:active, &:focus {
+      box-shadow: none;
+    }
+    .iconify {
+      vertical-align: text-bottom!important;
+    }
+  }
+}
+
+.list-variacoes {
+  div.text-truncate {
+    max-width: 68%;
+    .h5 {
+      font-size: 1.15rem;
+    }
+  }
+  .amount-age button {
+    font-size: 1.23rem;
+    padding: 2px;
+    line-height: 0;
+    color: #585858;
+    margin-top: -7px;
+    border: 2px solid #737373;
+    &:hover {
+      color: #212121;
+      border-color: #565656;
+    }
+    &:focus {
+      box-shadow: none;
+    }
+  }
+  strong {
+    font-size: 1.55rem;
+    font-weight: 400;
+    padding: 0 0.45rem;
+  }
+}
+
+.modal-loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  background: rgba(255,255,255, 0.6);
+  border-radius: 3px;
+  strong {
+    text-transform: uppercase;
+  }
+}
+
+#modal-formas-pagamento {
+  img {
+    display: inline-block;
+    width: 2.5rem;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+// Modal de aviso que o email ja esta sendo utilizado
+#modal-aviso-login {
+  .iconify.icon-alert {
+    font-size: 4.5rem;
+  }
+}

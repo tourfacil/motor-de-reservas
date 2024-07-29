@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+
+  parceiros-app:
+    image: ambientum/php:7.3-nginx
+    container_name: parceiros-app
+    volumes:
+      - .:/var/www/app
+    ports:
+      - "8484:8080"
+    networks:
+      - padrao
+
+networks:
+  padrao:
+    external: true

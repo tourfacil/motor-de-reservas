@@ -1,0 +1,73 @@
+.section-newsletter-landingpage {
+    background-color: #5DC3E3;
+    background-size: contain;
+    background-position: center;
+    background-repeat: repeat-x;
+
+    @include media-breakpoint-down(sm) {
+        background-size: cover;
+    }
+
+    h5 {
+        color: #FFFFFF; 
+        font-size: 2.5rem;
+        font-weight: 500; 
+        line-height: 1.6; 
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); 
+        margin-bottom: 1rem;
+
+        @include media-breakpoint-down(sm) {
+            font-size: 2.1rem;
+        }
+    }
+
+    p.lead {
+        color: #FFFFFF;
+        font-size: 1.2rem; 
+        font-weight: 500; 
+        line-height: 1.6;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); 
+        margin-bottom: 1rem; 
+
+        @include media-breakpoint-down(sm) {
+            font-size: 1rem;
+        }
+    }
+
+    .input-group>.form-control {
+        @include media-breakpoint-down(sm) {
+            border-top-left-radius: 0.3rem !important;
+            border-bottom-left-radius: 0.3rem !important;
+        }
+    }
+
+    input {
+        border-color: white !important;
+
+        &::placeholder {
+            color: #C3C3C3;
+            opacity: 1;
+        }
+
+        &:focus {
+            box-shadow: none !important;
+            border-color: adjust-color($color: white, $lightness: -20%) !important;
+        }
+    }
+
+    .btn-purple {
+        color: white;
+        background-color: adjust-color($color: #6f42c1, $lightness: -10%);
+        border-color: transparent !important;
+        transition: background-color .3s ease;
+
+        &:hover {
+            background-color: #6f42c1; 
+            transform: scale(1.05);
+        }
+
+        &:focus {
+            box-shadow: none !important;
+        }
+    }
+}

@@ -1,0 +1,70 @@
+.detalhes-ticket {
+
+  .aviso {
+    color: green;
+    padding: 10px 10px;
+    font-weight: bold;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+    text-transform: uppercase;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+  }
+
+  .aviso.red {
+    background: #e83528;
+    color: white!important;
+  }
+
+  .aviso.orange {
+    background: orange;
+    color: white!important;
+  }
+
+  .clear {
+    clear: both;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+    margin-top: 10px;
+  }
+
+  h3 {
+    margin-top: 10px;
+  }
+
+  .quantidade {
+    margin-bottom: 30px;
+    li {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 5px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .m-button {
+    padding: 20px 0!important;
+  }
+
+  hr {
+    margin: 25px auto;
+  }
+
+  .dados-comprador {
+    strong {
+      font-size: 1.2rem;
+    }
+    p {
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+body.login {
+  .logo-centered, img {
+    width: 220px!important;
+  }
+
+  img {
+    margin-bottom: 30px!important;
+  }
+
+  .authentication-form hr {
+    margin: 30px 0;
+  }
+
+  .elisyam-bg.background-login {
+    background: url("../../imagens/background_login.jpeg") no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+}

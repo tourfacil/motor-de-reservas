@@ -1,0 +1,26 @@
+.table-servicos-mais-vendidos {
+  tr td:first-child {
+    padding: 0.85rem 0.40rem;
+    text-align: center;
+
+    img {
+      height: auto;
+      width: 18px;
+    }
+  }
+
+  .ghost {
+    width: 100%;
+    padding: 5px;
+    background: #dcdcdc;
+  }
+}
+
+.chart-vendas {
+  height: 330px;
+  padding-top: 10px;
+}
+
+.body-servico-mais-vendido {
+  height: 330px;
+}

@@ -1,0 +1,22 @@
+.payment-steps {
+  .step-item {
+    span {
+      font-weight: 500;
+      font-size: 1.1rem;
+      color: #757575;
+    }
+    .number {
+      margin-right: 0.4rem;
+    }
+    .iconify {
+      margin-left: 0.7rem;
+      font-size: 1.3rem;
+      vertical-align: bottom!important;
+    }
+  }
+  .step-item.active {
+    span, .iconify {
+      color: $blue!important;
+    }
+  }
+}

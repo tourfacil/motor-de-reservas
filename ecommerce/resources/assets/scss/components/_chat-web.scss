@@ -1,0 +1,114 @@
+.whatsapp-button {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    bottom: 100px;
+    right: 20px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 1px 1px 2px #888;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.whatsapp-button:hover {
+    transform: scale(1.1);
+    background-color: #128C7E;
+    color: #FFF;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.modal-atendimento {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    bottom: 98px;
+    right: 18px;
+    z-index: 1001;
+    width: 300px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.modal-content {
+    padding: 20px;
+}
+
+.modal-header {
+    background-color: #eeeeee;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #dddddd;
+    position: relative;
+}
+
+.modal-header h2 {
+    margin: 0;
+    color: #8b45a8;
+    font-weight: bold;
+}
+
+.modal-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 600px) {
+    .modal-atendimento {
+        width: 80%;
+        right: 15px;
+        bottom: 70px;
+        justify-content: center;
+    }
+}
+.chat-button {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; 
+    background-color: #25d366;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.chat-button:hover {
+    text-decoration: none;
+    background-color: #128C7E;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.chat-button i {
+    margin-left: 40px;
+    margin-right: 30px;
+}
+
+.close-link {
+    text-align: center;
+    color: #888; 
+    text-decoration: underline;
+    cursor: pointer; 
+    transition: color 0.3s; 
+}
+
+.close-link:hover {
+    color: #128C7E; 
+}

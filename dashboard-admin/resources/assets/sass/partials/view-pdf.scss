@@ -1,0 +1,39 @@
+.view_pdf {
+  background: white;
+  * {
+    font-family: 'Roboto', sans-serif !important;
+    color: #000000;
+  }
+  .page-content {
+    max-width: 950px;
+    margin: auto;
+    .font-weight-bold {
+      color: #1f1f1f;
+    }
+    h2.title {
+      font-size: 1.8rem;
+    }
+    table thead th {
+      background: #eaeaea;
+      padding: 14px 10px;
+      color: #353535;
+    }
+  }
+
+  .table {
+    border-collapse: collapse !important;
+    width: 100%;
+  }
+
+  .table thead {
+    display: table-header-group;
+  }
+
+  .table tfoot {
+    display: table-row-group;
+  }
+
+  .table tr {
+    page-break-inside: avoid !important;
+  }
+}

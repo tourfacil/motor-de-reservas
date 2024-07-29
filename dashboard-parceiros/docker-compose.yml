@@ -1,0 +1,46 @@
+version: '3'
+
+volumes:
+
+  app-redis-data:
+    driver: local
+
+
+services:
+
+  app:
+    container_name: afiliados_app
+    command: "chmod +x ./docker/run.sh"
+    command: "chmod -R ug+w /var/www/storage"
+    command: "./docker/run.sh"
+    build:
+      context: ./
+      dockerfile: ./docker/Dockerfile
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ".:/var/www/"
+      - "./data/certbot/conf:/etc/letsencrypt"
+      - "./data/certbot/www:/var/www/certbot"
+
+  # Redis
+  redis:
+    image: redis:alpine
+    container_name: afiliados_redis
+    command: redis-server --requirepass xzT7%n%!M4^fCHcy6j
+    volumes:
+      - app-redis-data:/data
+    ports:
+      - "6379:6379"
+
+  # Let's encrypt certbot
+  certbot:
+    container_name: afiliados_certbot
+    image: certbot/certbot
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+    volumes:
+      - "./data/certbot/conf:/etc/letsencrypt"
+      - "./data/certbot/www:/var/www/certbot"
+
+

@@ -1,0 +1,34 @@
+.card-servico {
+    position: relative;
+    border: none;
+    .imagem-servico {
+        position: relative;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        height: 210px;
+        -webkit-border-radius: 0.25rem 0.25rem 0 0;
+        -moz-border-radius: 0.25rem 0.25rem 0 0;
+        border-radius: 0.25rem 0.25rem 0 0;
+        .info-comissao {
+            position: absolute;
+            bottom: 6px;
+            background: white;
+            padding: 5px 8px;
+            -webkit-border-radius: 0 0.25rem 0.25rem 0;
+            -moz-border-radius: 0 0.25rem 0.25rem 0;
+            border-radius: 0 0.25rem 0.25rem 0;
+            color: #5d5386;
+            span {
+                font-weight: 600;
+                color: #e76c90 !important;
+            }
+        }
+    }
+    .card-servico-info {
+        height: 129px;
+        p:first-child {
+            margin-top: -2px;
+        }
+    }
+}

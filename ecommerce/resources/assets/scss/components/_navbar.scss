@@ -1,0 +1,214 @@
+// navbar na index
+nav.index-page:before {bottom: 1.5rem!important;}
+// navbar utilizada no checkout
+nav.border-blue {border-bottom: 2px solid $blue;}
+// navbar do site retirando o breadcrumb
+nav:not(.custom-bread) {
+  background: white;
+  &:before {
+    content: "";
+    position: absolute;
+    background-color: #A1A1A1;
+    right: 0;
+    top: 0;
+    bottom: 1rem;
+    z-index: 0;
+    @include media-breakpoint-up(lg) {
+      width: calc((100% - 928px) / 2);
+    }
+    @include media-breakpoint-up(xl) {
+      width: calc((100% - 1168px) / 2);
+    }
+    @include media-breakpoint-up(xxl) {
+      width: calc((100% - 1468px) / 2);
+    }
+  }
+
+  .navbar-toggler {
+    border: none;
+    padding-left: 0;
+    outline: none!important;
+  }
+
+  .navbar-brand img {
+    height: 40px;
+    @include media-breakpoint-down(sm) {
+      height: 39px;
+    }
+    @include media-breakpoint-up(md) {
+      margin-top: -2px;
+    }
+  }
+  .navbar-nav {
+    .nav-item { position: relative; }
+    .nav-item .nav-link {
+      text-transform: uppercase;
+      background: transparent;
+      border: 0;
+      .iconify {
+        @extend .mr-1;
+        font-size: 1.4rem;
+        vertical-align: middle!important;
+        @include media-breakpoint-down(md) {
+          vertical-align: text-top!important;
+        }
+      }
+      .cart-count {
+        position: absolute;
+        top: 0;
+        right: -9px;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: $purple;
+        color: white;
+        font-size: 12px;
+        font-weight: 500;
+      }
+    }
+  }
+  @include media-breakpoint-up(lg) {
+    .navbar-nav.dark-menu {
+      background: #A1A1A1;
+      border-bottom-left-radius: 24px;
+      padding: 8px 0 8px 24px;
+      .nav-item {
+        border-radius: 8px;
+        &:hover:not(.no-hover) {
+          background: rgba(0,0,0,.1);
+        }
+      }
+      .nav-item .nav-link {
+        color: #ffffff !important;
+        font-weight: 300;
+      }
+    }
+  }
+  @include media-breakpoint-down(md) {
+    .navbar-nav {
+      .nav-item .nav-link {
+        color: #575756 !important;
+        &:hover {
+          color: #252524 !important;
+        }
+        .iconify {
+          color: $blue;
+        }
+      }
+    }
+  }
+}
+
+.sub-nav {
+  background: white;
+  .sub-nav-content {
+    text-align: center;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    padding-top: 0.45rem;
+    padding-bottom: 0.75rem;
+  }
+  a.active {
+    .iconify path {
+      fill: white;
+    }
+    &:before {
+      background: $purple;
+    }
+  }
+  a {
+    display: inline-block;
+    position: relative;
+    color: #666666;
+    text-transform: uppercase;
+    text-align: center;
+    margin-right: 3.5rem;
+    font-size: 0.95rem;
+    @include media-breakpoint-down(md) {
+      margin-right: 1.75rem;
+    }
+    &:before {
+      content: "";
+      width: 43px;
+      height: 43px;
+      position: absolute;
+      top: -7px;
+      border-radius: 50%;
+      right: 50%;
+      transform: translate(50%, 0);
+    }
+    &:last-child {
+      //margin-right: 0;
+    }
+    &:hover {
+      text-decoration: none;
+    }
+    .iconify {
+      display: block;
+      margin: auto auto 0.65rem auto;
+      font-size: 1.813rem;
+      path {
+        fill: #666666;
+      }
+    }
+  }
+  .btn-select-destino {
+    margin-top: -10px;
+  }
+}
+
+.nav-scroll-shadows.shadow-left {
+  &:before {
+    visibility: visible;
+  }
+}
+
+.nav-scroll-shadows.no-shadow-right {
+  &:after {
+    visibility: hidden;
+  }
+}
+
+.nav-scroll-shadows {
+  position: relative;
+  @include media-breakpoint-down(md) {
+    margin: 0 -15px 0 -15px;
+    div a:first-child,
+    div button:first-child {
+      margin-left: 15px!important;
+    }
+    div a:last-child,
+    div button:last-child {
+      margin-right: 15px!important;
+    }
+  }
+  &:before {
+    width: 40px;
+    height: 100%;
+    background-image: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.6) 28%, #fff);
+    content: "";
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotate(-180deg);
+    visibility: hidden;
+  }
+  &:after {
+    width: 40px;
+    height: 100%;
+    background-image: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.6) 28%, #fff);
+    content: "";
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    @include media-breakpoint-up(lg) {
+      visibility: hidden;
+    }
+  }
+}

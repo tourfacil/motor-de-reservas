@@ -1,0 +1,10 @@
+body.welcome {
+  background-size: cover;
+  background: linear-gradient(135deg, rgba(46,52,81,0.5) 0%,
+          rgba(46,52,81,0.95) 100%),
+          url('../../imagens/background.jpeg') no-repeat center center;
+
+  .logo-centered, img {
+    width: auto!important;
+  }
+}
